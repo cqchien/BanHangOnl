@@ -4,7 +4,7 @@ const Promotion = () => {
   const style = {
     width: '100%',
     height: '400px',
-    backgroundColor: '#4d4d4d'
+    backgroundColor: '#343a40'
   }
 
   return (
