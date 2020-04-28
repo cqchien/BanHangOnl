@@ -36,7 +36,7 @@ class App extends Component {
         <Carousel />
 
         <section id="smartphone" className="container-fluid pt-5 pb-5">
-          <h1 className="text-white text-center">BEST SMARTPHONE</h1>
+          <h1 className="text-center" style = {{color: "#000000", fontFamily: "'Coronetscript', cursive", fontStyle: "oblique", textDecoration: "underline"}}>Best Smartphone</h1>
           <div className="row">{smartphone}</div>
         </section>
         <Promotion />
