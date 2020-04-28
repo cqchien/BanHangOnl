@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+// * Import Components
+import Nav from "./components/Nav";
+import Carousel from "./components/Carousel";
+import Promotion from "./components/Promotion";
+import SmartPhone from "./components/SmartPhone";
+
+//* Import Data
+import SmartPhoneData from "./data/SmartPhone";
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      spInfo: SmartPhoneData,
+    };
+  }
+  render() {
+    let smartphone = this.state.spInfo.map((phone, index) => {
+      return (
+        <SmartPhone
+          id={phone.id}
+          name={phone.name}
+          desc={phone.desc}
+          img={phone.img}
+          price={phone.price}
+          key={index}
+        />
+      );
+    });
+    return (
+      <div className="App">
+        <Nav />
+        <Carousel />
+
+        <section id="smartphone" className="container-fluid pt-5 pb-5">
+          <h1 className="text-white text-center">BEST SMARTPHONE</h1>
+          <div className="row">{smartphone}</div>
+        </section>
+        <Promotion />
+      </div>
+    );
+  }
 }
 
 export default App;
