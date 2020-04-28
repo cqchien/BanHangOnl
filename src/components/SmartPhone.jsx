@@ -1,8 +1,27 @@
 import React, { Component } from 'react';
-
+import swal from 'sweetalert';
 import Modal from "./Modal";
 
 class SmartPhone extends Component {
+  handleInform = () => {
+    swal({
+      title: "Are you want to buy this product?",
+      text: "Click Ok to purchase the product and the money will be loose in your VISA Card!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        swal("Congratulation! You have bought the product", {
+          icon: "success",
+        });
+      } else {
+        swal("Oops! Thank you. See you next time");
+      }
+    });
+  }
+
   render() {
     let {name, desc, img, price, id } = this.props
     return (
@@ -18,7 +37,7 @@ class SmartPhone extends Component {
               <button type="button" className="btn btn-primary btn-md mr-3" data-toggle="modal" data-target={`#sp_${id}`}>
                 Detail
               </button>
-                <a href="#" className="btn btn-danger">Cart</a>
+                <a className="btn btn-danger" onClick = {this.handleInform} style={{color: "white"}}>Cart</a>
               </div>
             </div>
           </div>

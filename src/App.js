@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-
 import "./App.css";
+
 // * Import Components
 import Nav from "./components/Nav";
 import Carousel from "./components/Carousel";
