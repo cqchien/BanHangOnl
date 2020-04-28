@@ -21,6 +21,7 @@ class App extends Component {
     let smartphone = this.state.spInfo.map((phone, index) => {
       return (
         <SmartPhone
+          id={phone.id}
           name={phone.name}
           desc={phone.desc}
           img={phone.img}
