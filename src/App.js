@@ -17,19 +17,23 @@ class App extends Component {
       spInfo: SmartPhoneData,
     };
   }
+
+smartphone= () => {
+  return this.state.spInfo.map((phone, index) => {
+    return (
+      <SmartPhone
+        id={phone.id}
+        name={phone.name}
+        desc={phone.desc}
+        img={phone.img}
+        price={phone.price}
+        key={index}
+      />
+    );
+  });
+}
+
   render() {
-    let smartphone = this.state.spInfo.map((phone, index) => {
-      return (
-        <SmartPhone
-          id={phone.id}
-          name={phone.name}
-          desc={phone.desc}
-          img={phone.img}
-          price={phone.price}
-          key={index}
-        />
-      );
-    });
     return (
       <div className="App">
         <Nav />
@@ -37,7 +41,7 @@ class App extends Component {
 
         <section id="smartphone" className="container-fluid pt-5 pb-5">
           <h1 className="text-white text-center">BEST SMARTPHONE</h1>
-          <div className="row">{smartphone}</div>
+          <div className="row">{this.smartphone}</div>
         </section>
         <Promotion />
       </div>
