@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Modal extends Component {
   render() {
-    let {name, desc, price, id, img } = this.props.phone
+    let {name, desc, price, img } = this.props.phone
     return (
       <div>
         <div className="modal fade" id="modalId" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -19,11 +19,11 @@ class Modal extends Component {
                   <div className= "row">
                       <div className="col-6 text-center">
                         <h6>{name}</h6>
-                        <img src={`${img}`} alt="Smart Photo" style={{width: 200, height: 200}}/>
+                        <img src={`${img}`} alt="Smart" style={{width: 200, height: 200}}/>
                       </div>
                       <div className="col-6">
                         <h6>Specifications</h6>
-                        <table class="table text-left">
+                        <table className="table text-left">
                           <tbody>
                             <tr>
                               <td scope="row" style = {{fontWeight: "bold"}}>Price</td>

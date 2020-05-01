@@ -7,9 +7,11 @@ import Carousel from "./components/Carousel";
 import Promotion from "./components/Promotion";
 import SmartPhone from "./components/SmartPhone";
 import Modal from "./components/Modal";
+import ModalCart from "./components/ModalCart";
 
 //* Import Data
 import SmartPhoneData from "./data/SmartPhone";
+
 
 class App extends Component {
   constructor(props) {
@@ -22,7 +24,7 @@ class App extends Component {
 smartphone= () => {
   return SmartPhoneData.map((phone, index) => {
     return (
-      <SmartPhone phone={phone} renderModal = {this.renderModal}/>
+      <SmartPhone phone={phone} renderModal = {this.renderModal} key = {index}/>
     );
   });
 }
@@ -32,7 +34,6 @@ renderModal = (data) => {
     spInfo: data
   })
 }
-
 
   render() {
     return (
@@ -45,6 +46,7 @@ renderModal = (data) => {
           <div className="row">{this.smartphone()}</div>
         </section>
         <Modal phone = {this.state.spInfo}/>
+        <ModalCart />
         <Promotion />
       </div>
     );

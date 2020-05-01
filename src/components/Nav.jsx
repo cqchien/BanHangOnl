@@ -12,10 +12,7 @@ const Nav = () => {
           <div className="collapse navbar-collapse" id="myMenu">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a href="#" className="nav-link active">Home</a>
-              </li>
-              <li className="nav-item">
-                <a href="#" className="nav-link">News</a>
+                <a href="/" className="nav-link active">Home</a>
               </li>
               <li className="nav-item dropdown">
                 <a href="#" className="nav-link" data-toggle="dropdown">Products</a>
@@ -25,7 +22,9 @@ const Nav = () => {
                 </div>
               </li>
               <li className="nav-item">
-                <a href="#" className="nav-link">Forum</a>
+              <button type="button" className="btn btn-md btn-rounded btn-success ml-5" style ={{cursor: "pointer"}} data-toggle="modal" data-target="#modelId">
+                Cart
+              </button>
               </li>
             </ul>
           </div>
