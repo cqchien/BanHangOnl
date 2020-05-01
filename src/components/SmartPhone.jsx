@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import swal from 'sweetalert';
-import Modal from "./Modal";
 
 class SmartPhone extends Component {
   handleInform = () => {
@@ -23,7 +22,7 @@ class SmartPhone extends Component {
   }
 
   render() {
-    let {name, desc, img, price, id } = this.props
+    let {name, desc, img, price, id } = this.props.phone
     return (
       <div>
         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3 pb-3 pt-5">
@@ -34,7 +33,7 @@ class SmartPhone extends Component {
               <h4 className="card-title text-center">{name}</h4>
               <p className="card-text">{price}</p>
               <p className="card-text">{desc}</p>
-              <button type="button" className="btn btn-primary btn-md mr-3" data-toggle="modal" data-target={`#sp_${id}`}>
+              <button type="button" className="btn btn-primary btn-md mr-3" data-toggle="modal" data-target="#modalId" onClick={() => this.props.renderModal(this.props.phone)}>
                 Detail
               </button>
                 <a className="btn btn-danger" onClick = {this.handleInform} style={{color: "white"}}>Cart</a>
@@ -42,13 +41,7 @@ class SmartPhone extends Component {
             </div>
           </div>
         </div>
-        <Modal
-          id={id} 
-          name={name}
-          desc={desc}
-          img={img}
-          price={price}
-        />
+        
       </div>
     );
   }
