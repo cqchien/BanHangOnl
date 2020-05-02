@@ -19,7 +19,7 @@ const Carousel = () => {
               <img src='img/slide_2.jpg' alt="Chicago" width={'100%'} height={500} />
             </div>
             <div className="carousel-item">
-              <img src='img/slide_3.jpg' width={'100%'} height={500} />
+              <img src='img/slide_3.jpg' alt="Chicago" width={'100%'} height={500} />
             </div>
           </div>
           {/* Left and right controls */}
