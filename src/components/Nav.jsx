@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Nav = () => {
+const Nav = (props) => {
   return (
     <div>
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
@@ -22,8 +22,8 @@ const Nav = () => {
                 </div>
               </li>
               <li className="nav-item">
-              <button type="button" className="btn btn-md btn-rounded btn-success ml-5" style ={{cursor: "pointer"}} data-toggle="modal" data-target="#modelId">
-                Cart
+              <button type="button" className="btn btn-md btn-rounded btn-success ml-5" data-toggle="modal" data-target="#modelId">
+                Cart ( {props.sum} ) 
               </button>
               </li>
             </ul>

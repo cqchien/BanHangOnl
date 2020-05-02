@@ -1,36 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const ModalCart = () => {
-  return (
-    <div>
-      <div className="modal fade" id="modelId" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+class ModalCart extends Component {
+  renderCart = (phone) => {
+    return (
+      phone.map((value, index) => {
+        return (
+          <tr key= {index}>
+            <td>{index + 1}</td>
+            <td>{value.name}</td>
+            <td><img src={`${value.img}`} alt= "photos" width = "50px" height = "50px" /></td>
+            <td>{value.price} VND</td>
+            <td>{value.quantity}</td>
+            <td>{value.quantity*value.price} VND</td>
+          </tr>
+        )
+      })
+    )
+  }
+
+  render() {
+    return (
+      <div className="modal fade" id="modelId" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">Cart</h5>
+              <h5 className="modal-title" id="exampleModalLabel">Cart</h5>
               <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
               </button>
             </div>
             <div className="modal-body">
-              <table className="table">
+              <table class="table">
                 <thead>
                   <tr>
-                    <th>Code</th>
-                    <th>Name</th>
-                    <th>Photo</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Total</th>
+                    <td>Ordinal Number</td>
+                    <td>Name</td>
+                    <td>Photo</td>
+                    <td>Quantity</td>
+                    <td>Price</td>
+                    <td>Total</td>
                   </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td scope="row"></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </tbody>
+                </thead>
+                <tbody>
+                  {this.renderCart(this.props.phone)}
+                </tbody>
               </table>
             </div>
             <div className="modal-footer">
@@ -39,8 +52,9 @@ const ModalCart = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
-};
+
+    );
+  }
+}
 
 export default ModalCart;
