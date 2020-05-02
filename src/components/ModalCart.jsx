@@ -60,7 +60,7 @@ class ModalCart extends Component {
                     <td colSpan="3"></td>
                     <td>Total Money:</td>
                     <td>{
-                      this.props.phone.reduce((money, phone) => {return money += (phone.quantity * phone.price).toLocaleString()}, 0) 
+                      this.props.phone.reduce((money, phone) => {return money += phone.quantity * phone.price}, 0).toLocaleString() 
                     } VND</td>
                   </tr>
                 </tfoot>
