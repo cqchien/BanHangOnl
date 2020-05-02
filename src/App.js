@@ -93,10 +93,19 @@ class App extends Component {
         <Nav sum={sumQuantity} />
         <Carousel />
         <section id="smartphone" className="container-fluid pt-5 pb-5">
-
-          <h1 className="text-center" className="text-center" style = {{color: "#000000", fontFamily: "'Coronetscript', cursive", fontStyle: "oblique", textDecoration: "underline"}}>Smart Phone</h1>
+          <h1
+            className="text-center"
+            className="text-center"
+            style={{
+              color: "#000000",
+              fontFamily: "'Coronetscript', cursive",
+              fontStyle: "oblique",
+              textDecoration: "underline",
+            }}
+          >
+            Smart Phone
+          </h1>
           <div className="row">{this.smartphone()}</div>
-
         </section>
         <Modal phone={this.state.spInfo} />
         <ModalCart
