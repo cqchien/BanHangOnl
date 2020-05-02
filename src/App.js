@@ -17,22 +17,19 @@ class App extends Component {
     super(props);
     this.state = {
       spInfo: {},
-      cart: [
-        {
-          id: "1",
-          name: "IPhone X",
-          quantity: 2,
-          img: "./img/sp_iphoneX.png",
-          price: "30000000",
-        },
-      ],
+      cart: [],
     };
   }
 
   smartphone = () => {
     return SmartPhoneData.map((phone, index) => {
       return (
-        <SmartPhone phone={phone} renderModal={this.renderModal} addToCart = {this.addToCart} key={index}  />
+        <SmartPhone
+          phone={phone}
+          renderModal={this.renderModal}
+          addToCart={this.addToCart}
+          key={index}
+        />
       );
     });
   };
@@ -44,8 +41,17 @@ class App extends Component {
   };
 
   addToCart = (phone) => {
-    console.log(phone)
-  }
+    let newPhone = {
+      ...phone,
+      quantity: 1
+    };
+    let newCart = [...this.state.cart];
+    let index = newCart.findIndex((o) => o.id === newPhone.id);
+    index !== -1 ? (newCart[index].quantity += 1) : newCart.push(newPhone);
+    this.setState({
+      cart: newCart,
+    });
+  };
 
   render() {
     let sumQuantity = this.state.cart.reduce((sum, cart, index) => {

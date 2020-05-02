@@ -7,7 +7,7 @@ class Modal extends Component {
       <div>
         <div className="modal fade" id="modalId" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
           <div className="modal-dialog" role="document">
-            <div className="modal-content"> 
+            <div className="modal-content" style={{width: "max-content "}}> 
               <div className="modal-header">
                 <h5 className="modal-title">Information Detail</h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
@@ -27,7 +27,7 @@ class Modal extends Component {
                           <tbody>
                             <tr>
                               <td scope="row" style = {{fontWeight: "bold"}}>Price</td>
-                              <td>{price}</td>
+                              <td>{price} VND</td>
                             </tr>
                             <tr>
                               <td scope="row" style = {{fontWeight: "bold"}}>Description</td>

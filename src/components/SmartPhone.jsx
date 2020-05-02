@@ -33,7 +33,7 @@ class SmartPhone extends Component {
               <img className="card-img-top" src={img} alt="Card" style={{maxWidth: '100%', height: 250}} />
               <div className="card-body text-center">
               <h4 className="card-title text-center">{name}</h4>
-              <p className="card-text">{price}</p>
+              <p className="card-text">{price} VND</p>
               <p className="card-text">{desc}</p>
               <button type="button" className="btn btn-primary btn-md mr-3" data-toggle="modal" data-target="#modalId" onClick={() => this.props.renderModal(this.props.phone)}>
                 Details

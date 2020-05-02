@@ -22,7 +22,7 @@ class ModalCart extends Component {
     return (
       <div className="modal fade" id="modelId" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog" role="document">
-          <div className="modal-content">
+          <div className="modal-content" style={{width: "max-content "}}>
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">Cart</h5>
               <button type="button" className="close" data-dismiss="modal" aria-label="Close">
@@ -36,8 +36,8 @@ class ModalCart extends Component {
                     <td>Ordinal Number</td>
                     <td>Name</td>
                     <td>Photo</td>
-                    <td>Quantity</td>
                     <td>Price</td>
+                    <td>Quantity</td>
                     <td>Total</td>
                   </tr>
                 </thead>
