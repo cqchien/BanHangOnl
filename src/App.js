@@ -43,11 +43,23 @@ class App extends Component {
   addToCart = (phone) => {
     let newPhone = {
       ...phone,
-      quantity: 1
+      quantity: 1,
     };
     let newCart = [...this.state.cart];
     let index = newCart.findIndex((o) => o.id === newPhone.id);
     index !== -1 ? (newCart[index].quantity += 1) : newCart.push(newPhone);
+    this.setState({
+      cart: newCart,
+    });
+  };
+
+  removeCart = (phone) => {
+    let newCart = [...this.state.cart];
+    let index = newCart.findIndex((o) => o.id === phone.id)
+    newCart[index].quantity -= 1;
+    if(newCart[index].quantity == 0)
+      newCart.splice(index, 1) 
+    
     this.setState({
       cart: newCart,
     });
@@ -66,7 +78,7 @@ class App extends Component {
           <div className="row">{this.smartphone()}</div>
         </section>
         <Modal phone={this.state.spInfo} />
-        <ModalCart phone={this.state.cart} />
+        <ModalCart phone={this.state.cart} removeCart={this.removeCart} />
         <Promotion />
       </div>
     );

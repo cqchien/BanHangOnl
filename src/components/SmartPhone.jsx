@@ -35,10 +35,10 @@ class SmartPhone extends Component {
               <h4 className="card-title text-center">{name}</h4>
               <p className="card-text">{price} VND</p>
               <p className="card-text">{desc}</p>
-              <button type="button" className="btn btn-primary btn-md mr-3" data-toggle="modal" data-target="#modalId" onClick={() => this.props.renderModal(this.props.phone)}>
+              <button type="button" className="btn btn-info btn-sm col-4 mr-3" data-toggle="modal" data-target="#modalId" onClick={() => this.props.renderModal(this.props.phone)}>
                 Details
               </button>
-                <button className="btn btn-danger" onClick = {this.handleInform.bind(this, this.props)} style={{color: "white"}}> Add Cart</button>
+                <button className="btn btn-success btn-sm col-4 ml-3" onClick = {this.handleInform.bind(this, this.props)} style={{color: "white"}}> Add Cart</button>
               </div>
             </div>
           </div>

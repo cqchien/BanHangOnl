@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
 class ModalCart extends Component {
-  renderCart = (phone) => {
+  renderCart = (props) => {
+    let phones = props.phone
     return (
-      phone.map((value, index) => {
+      phones.map((value, index) => {
         return (
           <tr key= {index}>
             <td>{index + 1}</td>
@@ -12,6 +13,7 @@ class ModalCart extends Component {
             <td>{value.price} VND</td>
             <td>{value.quantity}</td>
             <td>{value.quantity*value.price} VND</td>
+            <td><button className="btn btn-sm btn-danger" onClick= {() => props.removeCart(value)}>Remove</button></td>
           </tr>
         )
       })
@@ -30,19 +32,20 @@ class ModalCart extends Component {
               </button>
             </div>
             <div className="modal-body">
-              <table class="table">
-                <thead>
+              <table className="table table-responsive table-hover ">
+                <thead className="thead-dark" >
                   <tr>
-                    <td>Ordinal Number</td>
-                    <td>Name</td>
-                    <td>Photo</td>
-                    <td>Price</td>
-                    <td>Quantity</td>
-                    <td>Total</td>
+                    <th>Ordinal Number</th>
+                    <th>Name</th>
+                    <th>Photo</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
-                  {this.renderCart(this.props.phone)}
+                  {this.renderCart(this.props)}
                 </tbody>
               </table>
             </div>
