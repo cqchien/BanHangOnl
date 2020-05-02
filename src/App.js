@@ -55,11 +55,30 @@ class App extends Component {
 
   removeCart = (phone) => {
     let newCart = [...this.state.cart];
-    let index = newCart.findIndex((o) => o.id === phone.id)
+    let index = newCart.findIndex((o) => o.id === phone.id);
     newCart[index].quantity -= 1;
-    if(newCart[index].quantity == 0)
-      newCart.splice(index, 1) 
-    
+    if (newCart[index].quantity == 0) newCart.splice(index, 1);
+
+    this.setState({
+      cart: newCart,
+    });
+  };
+
+  changeQuantity = (phone, condition) => {
+    // condition : true => increase
+    let newCart = [...this.state.cart];
+    let index = newCart.findIndex((o) => o.id === phone.id);
+    if (condition) {
+      newCart[index].quantity += 1;
+    } else {
+      if (newCart[index].quantity > 1) {
+        newCart[index].quantity -= 1;
+      } else {
+        newCart[index].quantity -= 1;
+        newCart.splice(index, 1);
+      }
+    }
+
     this.setState({
       cart: newCart,
     });
@@ -78,7 +97,11 @@ class App extends Component {
           <div className="row">{this.smartphone()}</div>
         </section>
         <Modal phone={this.state.spInfo} />
-        <ModalCart phone={this.state.cart} removeCart={this.removeCart} />
+        <ModalCart
+          phone={this.state.cart}
+          removeCart={this.removeCart}
+          changeQuantity={this.changeQuantity}
+        />
         <Promotion />
       </div>
     );

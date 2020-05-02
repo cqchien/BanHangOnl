@@ -10,9 +10,13 @@ class ModalCart extends Component {
             <td>{index + 1}</td>
             <td>{value.name}</td>
             <td><img src={`${value.img}`} alt= "photos" width = "50px" height = "50px" /></td>
-            <td>{value.price} VND</td>
-            <td>{value.quantity}</td>
-            <td>{value.quantity*value.price} VND</td>
+            <td>{value.price.toLocaleString()}VND</td>
+            <td>
+              <button className="btn btn-sm btn-outline-info mr-2" onClick= {() => props.changeQuantity(value, false)} >-</button>
+              {value.quantity}
+              <button className="btn btn-sm btn-outline-info ml-2" onClick= {() => props.changeQuantity(value, true)}>+</button>
+            </td>
+            <td>{(value.quantity*value.price).toLocaleString()} VND</td>
             <td><button className="btn btn-sm btn-danger" onClick= {() => props.removeCart(value)}>Remove</button></td>
           </tr>
         )
@@ -47,6 +51,19 @@ class ModalCart extends Component {
                 <tbody>
                   {this.renderCart(this.props)}
                 </tbody>
+                <tfoot>
+                  <tr>
+                    <td>Total Items:</td>
+                    <td>{
+                      this.props.phone.reduce((items, phone) => {return items += phone.quantity}, 0) 
+                    }</td>
+                    <td colSpan="3"></td>
+                    <td>Total Money:</td>
+                    <td>{
+                      this.props.phone.reduce((money, phone) => {return money += (phone.quantity * phone.price).toLocaleString()}, 0) 
+                    } VND</td>
+                  </tr>
+                </tfoot>
               </table>
             </div>
             <div className="modal-footer">
