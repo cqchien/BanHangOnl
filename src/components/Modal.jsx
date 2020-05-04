@@ -27,7 +27,7 @@ class Modal extends Component {
                           <tbody>
                             <tr>
                               <td scope="row" style = {{fontWeight: "bold"}}>Price</td>
-                              <td>{price == undefined ? 0 : price.toLocaleString()}VND</td>
+                              <td>{price === undefined ? 0 : price.toLocaleString()}VND</td>
                             </tr>
                             <tr>
                               <td scope="row" style = {{fontWeight: "bold"}}>Description</td>
