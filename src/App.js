@@ -45,7 +45,6 @@ class App extends Component {
       ...phone,
       quantity: 1,
     };
-    console.log(newPhone);
 
     let newCart = [...this.state.cart];
     let index = newCart.findIndex((o) => o.id === newPhone.id);
@@ -60,7 +59,6 @@ class App extends Component {
     let index = newCart.findIndex((o) => o.id === phone.id);
     newCart[index].quantity -= 1;
     if (newCart[index].quantity === 0) newCart.splice(index, 1);
-    console.log(newCart)
     this.setState({
       cart: newCart,
     });
